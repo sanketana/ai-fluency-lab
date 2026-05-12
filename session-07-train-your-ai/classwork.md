@@ -9,7 +9,9 @@
 
 ## Session Overview
 
-Students stop being consumers of AI and become its creators. They train an image classifier to recognize Rock, Paper, and Scissors hand gestures using Google's Teachable Machine, then plug their trained model into a playable game. The core lesson: the shape of what goes in determines the shape of what comes out. When students build a model with their own hands and watch it succeed or fail based on their training choices, they deeply understand how AI works — and where bias comes from.
+**Format:** 1:1 (one teacher, one student)
+
+The student stops being a consumer of AI and becomes its creator. They train an image classifier to recognize Rock, Paper, and Scissors hand gestures using Google's Teachable Machine, then plug their trained model into a playable game. The core lesson: the shape of what goes in determines the shape of what comes out. When the student builds a model with their own hands and watches it succeed or fail based on their training choices, they deeply understand how AI works — and where bias comes from.
 
 **Key message to reinforce throughout:** You don't just use AI — you shape it. And if the training data is limited, the AI is limited.
 
@@ -28,28 +30,22 @@ This model will fail hilariously during your demo. That's the point.
 
 ### 2. Test the Game Template
 
-- Open `game-templates/rps-game.html` in **Chrome** on the classroom machine
+- Open `game-templates/rps-game.html` in **Chrome** on the student's machine
 - Paste your bad model URL and verify the game loads
-- Verify webcam permission works (students will need to click "Allow")
+- Verify webcam permission works (click "Allow" when Chrome asks)
 
-### 3. Share Files with Students
+### 3. Share Files with Student
 
-Distribute `rps-game.html` to students via:
-- Google Classroom / shared Drive folder
-- Email attachment
-- USB drive (if local)
-- Or host on any web server and share the link
+Have `rps-game.html` ready on the student's machine (shared folder, email, or USB).
 
 ### 4. Checklist
 
-- [ ] Chrome browser installed on all student machines
-- [ ] Webcams working (built-in or external)
+- [ ] Chrome browser on both teacher and student machines with working webcams
 - [ ] Internet access (for Teachable Machine + TensorFlow.js CDN)
 - [ ] "Bad model" URL ready for the Hook demo
-- [ ] `rps-game.html` accessible to all students
-- [ ] Training guide printed or shared digitally (`training-guide/teachable-machine-steps.md`)
-- [ ] Reflection sheets ready (`reflection-sheet.md`)
-- [ ] Timer visible to class
+- [ ] `rps-game.html` accessible on student's machine
+- [ ] Training guide ready to share (`training-guide/teachable-machine-steps.md`)
+- [ ] Reflection sheet ready (`reflection-sheet.md`)
 
 ---
 
@@ -69,10 +65,10 @@ Ham it up: act frustrated. "What?! That was clearly Rock! Why does it think that
 After a few laughable rounds:
 > "Okay, this AI is terrible. But here's the thing — I built this AI. So whose fault is it that it's bad?"
 
-#### Class Discussion (5 min)
+#### Discussion (5 min)
 
-**Ask the class:**
-- "Why do you think my AI was so bad at this?" (Let students hypothesize)
+**Ask the student:**
+- "Why do you think my AI was so bad at this?" (Let them hypothesize)
 - "How many example photos do you think I used to train it?" (Reveal: only 5 per gesture)
 - "What if all my photos were from the same angle? Same lighting? Same hand?"
 
@@ -94,16 +90,16 @@ After a few laughable rounds:
 
 #### Step 1: Open Teachable Machine (3 min)
 
-Everyone opens [teachablemachine.withgoogle.com](https://teachablemachine.withgoogle.com) in Chrome.
+Open [teachablemachine.withgoogle.com](https://teachablemachine.withgoogle.com) in Chrome together.
 
-**Teacher walks through:**
+**Walk through together:**
 1. Click **Get Started**
 2. Choose **Image Project** → **Standard image model**
 3. You'll see two default classes — rename and add a third
 
 > "Rename your classes to exactly: **Rock**, **Paper**, **Scissors**. Spelling and capitalization matter — the game needs to match these names."
 
-Refer students to the training guide (`training-guide/teachable-machine-steps.md`) for detailed steps.
+Share the training guide (`training-guide/teachable-machine-steps.md`) for reference.
 
 #### Step 2: Record Training Samples (15 min)
 
@@ -114,7 +110,7 @@ Refer students to the training guide (`training-guide/teachable-machine-steps.md
 
 > "Watch me — I'm not holding perfectly still. I'm tilting my hand, moving closer and further, shifting left and right. This teaches the AI to recognize Rock in MANY situations, not just one."
 
-**Students record their own samples.** Minimum targets:
+**Student records their own samples.** Minimum targets:
 
 | Class | Minimum Samples | Key Instruction |
 |-------|----------------|-----------------|
@@ -122,7 +118,7 @@ Refer students to the training guide (`training-guide/teachable-machine-steps.md
 | Paper | 50+ | Show palm from different positions |
 | Scissors | 50+ | Both left and right hand if possible |
 
-**Teacher circulates. Watch for:**
+**Watch for and coach on:**
 - **Too few samples:** "You've only got 15 photos. That's like studying one paragraph for a whole exam — add more!"
 - **No variation:** "All your photos look identical. Move your hand around, change the distance. Teach the AI that Rock can look different."
 - **Messy background:** "If you have a lot of stuff behind you, the AI might learn to recognize your bookshelf instead of your hand. Try to keep the background simple."
@@ -155,9 +151,9 @@ Quick checkpoint:
 
 #### Step 6: Play! (9 min)
 
-> "Click **Play Round** and show your gesture when the countdown says SHOW. Best of 10 rounds. Let's see who can beat the computer!"
+> "Click **Play Round** and show your gesture when the countdown says SHOW. Best of 10 rounds. Let's see if your AI can beat the computer!"
 
-Students play rounds. The room should be buzzing. Teacher circulates:
+Let the student play a full game. Coach as they go:
 - If AI keeps misreading: "Look at the confidence bars. Which gestures is it confusing? You might need to go back and add more training data."
 - If student wins easily: "Great training! Now here comes the real test..."
 
@@ -165,27 +161,23 @@ Students play rounds. The room should be buzzing. Teacher circulates:
 
 **This is the most important part of the session.**
 
-**Teacher announces:**
-> "Okay, everyone stop playing. Here's the challenge: swap laptops with your neighbor. Try to play THEIR game with YOUR hands."
+**Teacher says:**
+> "Your AI was trained on YOUR hands. Let's see what happens when someone else tries to use it."
 
-Students swap and attempt to play each other's games.
+**Round 1 — Teacher tries the student's model (4 min):**
+The teacher plays the RPS game using the student's trained model. The teacher's hands will likely be a different size, skin tone, and angle than what the model learned.
 
-**What typically happens:**
-- The model trained only on Student A's hand fails to recognize Student B's gestures
-- Different skin tones, hand sizes, angles, and backgrounds all cause failures
-- Some models work across students (those with more varied training data)
+> "Watch — I'm showing Rock, but your AI thinks it's Paper. Why? Because it only learned what YOUR Rock looks like, not mine."
 
-**After 3–4 minutes of swapping, bring the class together:**
+Let the student observe the model struggling with the teacher's hands. Play 3–4 rounds so the pattern is clear.
 
-> "Raise your hand if your classmate's AI DIDN'T recognize your gestures."
+**Round 2 — Student tries the teacher's model (3 min):**
+If you prepared your own well-trained model beforehand, let the student try playing YOUR model. Does it work for them? (If you trained only with your own hands, it probably won't.)
 
-(Most hands go up.)
+**Discussion (3 min):**
+> "Your model was trained on one person's hands. It works for you, but not for me. Now think about this: if a real company built a facial recognition AI and only trained it on photos of one type of face, what would happen?"
 
-> "Raise your hand if your classmate's AI worked perfectly with your hands."
-
-(Few hands.)
-
-> "Now think about this: if a real company built a facial recognition AI and only trained it on photos of one type of face, what would happen?"
+> "This is exactly what has happened in the real world. Voice assistants that don't understand certain accents. Face filters that don't work on darker skin tones. Hiring AI that rejects qualified people. The AI isn't choosing to be biased — it's reflecting the limits of its training data."
 
 Let this sink in. This is the bridge to real-world AI bias.
 
@@ -193,46 +185,46 @@ Let this sink in. This is the bridge to real-world AI bias.
 
 ### Phase 3: Reflect (15 minutes)
 
-#### Guided Reflection (10 min)
+#### Written Reflection (8 min)
 
-Hand out the reflection sheet (`reflection-sheet.md`). Students fill it in.
+Give the student the reflection sheet (`reflection-sheet.md`) and let them fill it in. The act of writing solidifies the learning — resist the urge to talk through it for them.
 
 Key questions they'll answer:
-- What happened when someone else used your model?
+- What happened when the teacher used your model?
 - What training data was missing?
 - How is this like real-world AI bias?
 
-**While students write, teacher says:**
-> "What you just experienced is exactly what happens with real AI systems. Amazon built a hiring AI trained mostly on resumes from men — it learned to reject women's resumes. Facial recognition systems trained mostly on lighter skin tones fail on darker skin tones. The AI isn't choosing to be biased — it's reflecting the bias in its training data. That's what 'garbage in, garbage out' really means."
+#### 1:1 Discussion (7 min)
 
-#### Age Differentiation
+Once the student finishes writing, talk through their answers together. Use the reflection sheet as a conversation starter, not a quiz.
 
-**Junior (10–12):** Focus reflection on the concrete experience: "What happened? What was missing?" Keep the real-world examples simple and relatable (voice assistants not understanding some accents).
+**Real-world connection to share:**
+> "Amazon built a hiring AI trained mostly on resumes from men — it learned to reject women's resumes. Facial recognition systems trained mostly on lighter skin tones fail on darker skin tones. The AI isn't choosing to be biased — it's reflecting the bias in its training data. That's what 'garbage in, garbage out' really means."
+
+**Age Differentiation:**
+
+**Junior (10–12):** Focus on the concrete experience: "What happened? What was missing?" Keep real-world examples simple and relatable (voice assistants not understanding some accents, face filters not working for everyone).
 
 **Senior (13–16):** Push for deeper analysis: "Who's responsible for fixing AI bias? The engineers? The company? The government? What if biased AI is used to decide who gets a loan or who gets arrested?"
 
-#### Brief Class Discussion (5 min)
-
-Ask 2–3 students to share one answer from their reflection sheet. Target questions:
-- "What training data was missing from your model?"
-- "How does this connect to real AI products?"
-
 ---
 
-### Phase 4: Share (15 minutes)
+### Phase 4: Share + Challenge (15 minutes)
 
-#### Student Demos (7 min)
+#### Student Explains Their Model (5 min)
 
-3–4 volunteers share their game. For each:
-1. Show their model in action (play 1–2 rounds)
-2. Answer: "What was the hardest gesture for your AI to learn? Why?"
-3. Answer: "What happened when your classmate tried your game?"
+Have the student walk you through their work as if presenting to a parent:
+1. Show the model in action (play 2–3 rounds)
+2. "What was the hardest gesture for your AI to learn? Why?"
+3. "What would you do differently if you trained it again?"
 
-#### Mini Tournament (5 min)
+#### Teacher vs Student Challenge (7 min)
 
-If time allows: challenge round. Two students play simultaneously — whose model is more accurate? The class votes on the best-trained AI. Award "Best AI Trainer" bragging rights.
+Now both train models and compete! Teacher quickly trains a model of their own (or uses the pre-made one, improved). Play 5 rounds each on the same computer — who gets a higher win rate against the computer?
 
-#### Teacher Wrap-Up (3 min)
+Alternatively: challenge the student to **improve their model in 3 minutes** (add more samples, retrain) and see if their win rate goes up. This reinforces that more/better data = better AI.
+
+#### Wrap-Up (3 min)
 
 > "Today you went from AI users to AI creators. You saw firsthand that AI doesn't think — it reflects. It reflects whatever data you give it, including the limitations and biases in that data."
 >
@@ -244,13 +236,12 @@ If time allows: challenge round. Two students play simultaneously — whose mode
 
 ## Materials Checklist
 
-- [ ] Chrome browser on all student machines with working webcams
-- [ ] Internet access
+- [ ] Chrome browser on student's machine with working webcam
+- [ ] Internet access (for Teachable Machine + TensorFlow.js CDN)
 - [ ] Pre-trained "bad model" URL for teacher demo
-- [ ] `rps-game.html` distributed to all students
-- [ ] Training guide printed or shared (`training-guide/teachable-machine-steps.md`)
-- [ ] Reflection sheets — printed or digital (`reflection-sheet.md`)
-- [ ] Timer visible to class
+- [ ] `rps-game.html` on student's machine
+- [ ] Training guide ready to share (`training-guide/teachable-machine-steps.md`)
+- [ ] Reflection sheet — printed or digital (`reflection-sheet.md`)
 
 ---
 
@@ -258,14 +249,14 @@ If time allows: challenge round. Two students play simultaneously — whose mode
 
 - **Most common issue:** The model confuses two gestures (usually Paper and Scissors). Fix: add more samples with clearer distinction, or have the student exaggerate the difference (spread fingers wide for Paper, only two fingers for Scissors).
 
-- **Webcam permission:** If Chrome blocks the webcam, students need to click the camera icon in the address bar and select "Allow." On school-managed Chromebooks, the admin may need to allow camera access for teachablemachine.withgoogle.com.
+- **Webcam permission:** If Chrome blocks the webcam, click the camera icon in the address bar and select "Allow."
 
-- **"My model won't load in the game":** Check that the student copied the FULL URL (including the trailing slash). The URL should look like `https://teachablemachine.withgoogle.com/models/abc123/`.
+- **"Model won't load in the game":** Check that the student copied the FULL URL (including the trailing slash). The URL should look like `https://teachablemachine.withgoogle.com/models/abc123/`.
 
-- **Slow internet:** Model training happens locally in the browser (no upload needed). Only the export step requires good internet. If internet is very slow, students can test their models directly in Teachable Machine's Preview panel instead of using the game template.
+- **Slow internet:** Model training happens locally in the browser (no upload needed). Only the export step requires good internet. If internet is very slow, test models directly in Teachable Machine's Preview panel instead of the game template.
 
-- **If a student finishes early:** Challenge them to improve their model's accuracy to 95%+ on all three gestures, or to make their model work for 3 different people without retraining.
+- **If the student finishes early:** Challenge them to improve their model's accuracy to 95%+ on all three gestures, or to make their model work for both teacher and student without retraining.
 
 - **Privacy note:** Teachable Machine processes all images locally in the browser. No photos are uploaded to Google's servers during training. The only upload happens when the student exports the model (which contains the trained weights, not the original photos).
 
-- **The bias experiment is the emotional peak.** Protect this time. If you're running behind, cut Step 6 (play time) down to 5 minutes rather than cutting the swap experiment. The game is fun, but the bias discovery is the real lesson.
+- **The bias experiment is the emotional peak.** Protect this time. If you're running behind, cut Step 6 (play time) down to 5 minutes rather than cutting the bias experiment. The game is fun, but the bias discovery is the real lesson.

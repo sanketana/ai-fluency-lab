@@ -25,7 +25,7 @@ _____________________________________________________________________________
 
 ### Part 2: The Bias Experiment
 
-**What happened when your classmate tried to use your model?**
+**What happened when your teacher tried to use your model?**
 
 - [ ] It worked just as well for them
 - [ ] It mostly worked but made more mistakes
