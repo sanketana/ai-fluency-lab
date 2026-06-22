@@ -1,0 +1,8 @@
+# NEVER upload your real API key. This keeps it off GitHub.
+.streamlit/secrets.toml
+
+# Python junk
+__pycache__/
+*.pyc
+.venv/
+venv/
